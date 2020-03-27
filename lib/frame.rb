@@ -13,8 +13,8 @@ class Frame
     compute_total_score
   end
 
-  def add_to_total_score(bonus)
-    @total_score += bonus
+  def add_to_total_score(accumulative_score)
+    @total_score += accumulative_score
   end
 
   def print_frame
