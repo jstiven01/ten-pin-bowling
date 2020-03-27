@@ -97,4 +97,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.color = true
+  config.order = "random"
+  # This is critical, don't remove it
+  #config.formatter = 'NyanCatWideFormatter'
 end
