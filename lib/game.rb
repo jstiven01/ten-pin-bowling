@@ -9,14 +9,9 @@ class Game
     @current_box = 0
   end
 
-  def format_pinfalls(pinfalls)
-    pinfalls == 'F' ? 0 : pinfalls.to_i
-  end
-
   def frame_pinfalls(pinfalls)
-    integer_pinfalls = format_pinfalls(pinfalls)
-    @current_box += 1 if integer_pinfalls == 10 && @current_frame < 9
-    @frames[@current_frame].save_pinfalls(@current_box, integer_pinfalls)
+    @current_box += 1 if pinfalls != 'F' && pinfalls.to_i == 10 && @current_frame < 9
+    @frames[@current_frame].save_pinfalls(@current_box, pinfalls)
   end
 
   def there_spare?

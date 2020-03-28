@@ -6,10 +6,17 @@ class Frame
 
   def initialize(number_boxes)
     @boxes = [0] * number_boxes
+    @fouls = [nil] * number_boxes
   end
 
   def save_pinfalls(position, pinfalls)
-    @boxes[position] = pinfalls
+    pinfalls_integer = 0
+    if pinfalls == 'F'
+      @fouls[position] = pinfalls
+    else
+      pinfalls_integer = pinfalls.to_i
+    end
+    @boxes[position] = pinfalls_integer
     compute_total_score
   end
 
@@ -26,8 +33,10 @@ class Frame
       @boxes.length.times do |i|
         final_string += if @boxes[i] == 10
                           'X  '
+                        elsif @fouls[i]
+                          'F  '
                         else
-                          "#{@boxes[i] != 0 ? @boxes[i].to_s : ' '}  "
+                          "#{@boxes[1] != 10 ? @boxes[i].to_s : ' '}  "
                         end
       end
       final_string.rstrip

@@ -51,6 +51,12 @@ RSpec.describe Frame do
       expect(@frame.print_frame).to eq('5  3')
     end
 
+    it 'prints 0 and 7 pinfalls ' do
+      @frame.save_pinfalls(0, 0)
+      @frame.save_pinfalls(1, 7)
+      expect(@frame.print_frame).to eq('0  7')
+    end
+
     it 'prints a strike' do
       @frame.save_pinfalls(1, 10)
       expect(@frame.print_frame).to eq('   X')
