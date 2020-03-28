@@ -2,4 +2,5 @@
 --require spec_player
 --require spec_frame
 --require spec_game
+--require spec_integration_test
 --format documentation
