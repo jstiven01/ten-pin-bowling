@@ -4,9 +4,13 @@ class Player
   attr_accessor :name
   attr_accessor :game
 
-  def initialize(name, game)
+  def initialize(game, name = nil)
     @name = name
     @game = game
+  end
+
+  def set_name(name_player)
+    @name = name_player
   end
 
   def print_game

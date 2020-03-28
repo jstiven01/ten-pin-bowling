@@ -14,7 +14,7 @@ RSpec.describe Player do
     it 'Create player object with name and game as parameters' do
       ten_frames = [*Array.new(9) { |i| Frame.new(2) }, Frame.new(3)]
       game = Game.new(ten_frames)
-      player = Player.new('Jeff', game)
+      player = Player.new(game, 'Jeff')
       expect(player.name).to eq('Jeff')
       expect(player.game.frames.length).to eq(10)
     end
@@ -24,7 +24,7 @@ RSpec.describe Player do
     before(:each) do
       ten_frames = [*Array.new(9) { |i| Frame.new(2) }, Frame.new(3)]
       game = Game.new(ten_frames)
-      @player = Player.new('Jeff', game)
+      @player = Player.new(game, 'Jeff')
       simulating_game(@player.game, %w[10 7 3 9 0 10
                                        0 8 8 2 F 6 10 10 10 8 1])
     end
